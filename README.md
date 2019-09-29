@@ -49,6 +49,8 @@ In theory, you are optimizing a rapid event related design. Looking at the outpu
 
 Spoiler: your design could be broadly characterized as having the features of something other than a rapid event-related design, although the design may have not converged to the ideal form of this other type of design. 
 
+The general type of design the algorithm converged on was the block type design. Even though the output is not completely a block design, there are chunks of stimulus 0 presentations and then chunks of stimulus 1 presentations. 
+
 
 ## Question 1.2
 
@@ -59,6 +61,8 @@ Speculate on why the optimal design you have obtained is in some respects unchar
 
 You will investigate these questions in the next sections, but please answer these questions before looking at your results from part 2 & 3.
 
+1. The lack of counterbalancing means that the algorithm won't worry about predictability of stimuli. This is why we get blocks of stimuli rather than alternating stimuli aperiodically. I would expect the stimuli to change more frequently than in this design if equal weight were given to detection efficiency and 3rd order counterbalancing.
+2. Since there are only two conditions, a block design is efficient. If there were 6 conditions, I would expect a design more characteristic of a rapid event-related design because it would be hard to get the blocks of events we want to compare close to each other sequentially. 
 
 # Part 2
 
@@ -73,10 +77,13 @@ Also change `exercise = 'part2'` on line 20 of the script. Save the python scrip
 
 Compared to the result of Part 1, does this design qualitatively seems to be more of a rapid event-related design?
 
+Yes, it appears so.
+
 ## Question 2.2
 
 Are the differences between this design and Part 1 consistent with your earlier predictions?
 
+Somewhat. There is less alternating than I expected towards the end (so it is still somewhat like a block design), but there is more interleaving of the stimuli towards the beginning of the design. 
 
 
 # Part 3
@@ -133,4 +140,5 @@ This is a very good thing statistically, but it may be undesirable psychological
 
 **Q: Does the structure of this design seem desirable from both a psychological expectation and neural adaptation perspective? If not, is there a parameter in the [src.neurodesign.experiment class documentation](https://neurodesign.readthedocs.io/en/latest/genalg.html#neurodesign-design-optimisation) that might be useful to change?**
 
+One parameter that limits the number of times a stimulus can be repeated is `maxrep`. The parameter is an integer (or `None`) indicating the maximum number of repetitions. However, for the most part, the structure of the design from Part 4 does not seem as if there is a stimuli that is presented too many times in a row. The most that I can tell is 4 times in a row. Every other "block" of conditions are only one or two presentations of the stimuli. 
 
