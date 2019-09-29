@@ -17,7 +17,7 @@ import numpy as np
 cycles = 5000 # try cycles=10 for testing and cycles=5000 for real applications
 sims = 10
 
-exercise = 'part1' # change this for each exercise
+exercise = 'part2' # change this for each exercise
 
 # define the experiment
 EXP = experiment(
@@ -33,14 +33,14 @@ EXP = experiment(
     ITImin = 1,
     ITImean = 4,
     ITImax=30,
-    confoundorder=1, # this cannot be 0
+    confoundorder=3, # this cannot be 0
     hardprob=True,
     )
 
 # optimize the design for detection efficiency only using GA
 POP_GA = optimisation(
     experiment=EXP,
-    weights=[0,1,0,0],
+    weights=[0,.5,0,.5],
     preruncycles = 2,
     cycles = cycles,
     seed=1,

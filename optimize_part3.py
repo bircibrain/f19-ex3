@@ -17,15 +17,15 @@ import numpy as np
 cycles = 5000 # try cycles=10 for testing and cycles=5000 for real applications
 sims = 10
 
-exercise = 'part1' # change this for each exercise
+exercise = 'part3' # change this for each exercise
 
 # define the experiment
 EXP = experiment(
     TR=2,
     duration=300,
-    P = [.5, .5],
-    C = [[1.0, -1.0]],
-    n_stimuli = 2,
+    P = [1.0/6.0, 1.0/6.0, 1.0/6.0, 1.0/6.0, 1.0/6.0, 1.0/6.0],
+    C = [[1.0, -1.0, 0, 0, 0, 0]],
+    n_stimuli = 6,
     rho = 0.3,
     resolution=0.1,
     stim_duration=1,

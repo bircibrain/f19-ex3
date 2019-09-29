@@ -17,30 +17,30 @@ import numpy as np
 cycles = 5000 # try cycles=10 for testing and cycles=5000 for real applications
 sims = 10
 
-exercise = 'part1' # change this for each exercise
+exercise = 'part4' # change this for each exercise
 
 # define the experiment
 EXP = experiment(
     TR=2,
     duration=300,
-    P = [.5, .5],
-    C = [[1.0, -1.0]],
-    n_stimuli = 2,
+    P = [1.0/5.0, 1.0/5.0, 1.0/5.0, 1.0/5.0, 1.0/5.0],
+    C = [[1.0, -1.0, 0, 0, 0], [0, 0, 1.0, -1.0, 0], [1.0, 1.0, -1.0, -1.0, 0]],
+    n_stimuli = 5,
     rho = 0.3,
     resolution=0.1,
     stim_duration=1,
     ITImodel = 'exponential',
     ITImin = 1,
-    ITImean = 4,
-    ITImax=30,
-    confoundorder=1, # this cannot be 0
+    ITImean = 2,
+    ITImax=5,
+    confoundorder=3, # this cannot be 0
     hardprob=True,
     )
 
 # optimize the design for detection efficiency only using GA
 POP_GA = optimisation(
     experiment=EXP,
-    weights=[0,1,0,0],
+    weights=[0,.5,.5,0],
     preruncycles = 2,
     cycles = cycles,
     seed=1,
